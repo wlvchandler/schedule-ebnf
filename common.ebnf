@@ -1,0 +1,25 @@
+<string_nonempty> ::= <char>+
+<char> ::= <symbol> | <alphanum> | <ws>
+
+<exponential> ::= <real> "e" <digit_nonzero>+ <digit>*
+<real> ::= <neg>? <integer_unsigned> <fractional>?
+<fractional> ::= <dot> (<zero> | <digit>* <digit_nonzero>+ <digit>*)
+<integer> ::= <zero> | <integer_signed>
+<integer_signed> ::= <neg>? <integer_nonzero>
+<integer_unsigned> ::= <zero> | <integer_nonzero>
+<integer_nonzero> ::= <digit_nonzero> <digit>*
+<digit_nonzero> ::= [1-9]
+<zero> ::= "0"
+<neg> ::= "-"
+<dot> ::= "."
+
+<symbol> ::= "+" | "-" | "\\" | "/" | "=" | "<" | ">" | "!" | "@" | "#" | "$" | "%" | "^" | "&" | "*" | "(" | ")" | "[" | "]" | "{" | "}" | ";" | ":" | "," | "." | "?" | "|"
+<alphanum> ::= <letter> | <digit>
+<letter> ::= [A-Z] | [a-z]
+<digit> ::= [0-9]
+
+<ws> ::= (<nnl> | <nl>)+
+<nnl> ::= (<space> | <tab>)+
+<space> ::= " "
+<tab> ::= "\t"
+<nl> ::= "\n"

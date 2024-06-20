@@ -1,0 +1,24 @@
+<Schedule> ::= <schedule> <nnl> <Action> <nnl> "{" <nl> <Definition> <nl> "}"
+<schedule> ::= "schedule"
+
+<Action> ::= <ActionType> "(" "'" <ActionIdentifier> "'" ")"
+<ActionIdentifier> ::= ([A-Z]+ | [a-z]+ | [0-9]+)+ ("." [a-z]+)*
+<ActionType> ::= "function" | "script" | "program"
+
+<Definition> ::= <tab> <ParamBlock>
+<ParamBlock> ::= <ParamGroup> <nnl> "{" <nl> <tab> <tab> <ParamList> <nl> <tab> "}"
+
+<ParamList> ::= <ParamPair> | <ParamList> <nl> <ParamPair>
+<ParamPair> ::= <Parameter> <nnl> <ParamValue>
+
+<ParamGroup> ::= "start" | "frequency" | "interval" | "condition" | "actions"
+<Parameter> ::= "after" | "at" | "cron" | "days" | "fixed" | "max" | "metric" | "min" | "months" | "on" | "process" | "random" | "rate" | "repeat" | "times" | "weeks"
+<ParamValue> ::= <Cron> | <Datetime> | <Interval> | <List> | <Number> | <Rate> | <String> | "{" <ParamList> "}"
+
+<Number> ::= <integer> | <real> | <exponential>
+<String> ::= <string_nonempty> | E
+<Cron> ::= "<Cron>"
+<Datetime> ::= <DateTime>
+<Interval> ::= "<Interval>"
+<List> ::= "<List>"
+<Rate> ::= "<Rate>"
