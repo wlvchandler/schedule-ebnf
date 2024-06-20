@@ -1,0 +1,9 @@
+<integer_list> ::= <integer> | <integer_list> "," <integer>
+<slash_interval> ::= "/" <integer>
+<number_range> ::= <integer> "-" <integer> <slash_interval>?
+<name_range> ::= <name> "-" <name> <slash_interval>?
+<number_expr> ::= <number_range> <slash_interval> | <integer> <slash_interval>?
+<name_expr> ::= <name_range> | <name> <slash_interval>?
+<ast_expr> ::= "*" <slash_interval>?
+<simple_expr> ::= <name_expr> | <number_expr> | <ast_expr>
+<simple_field> ::= <simple_expr> { "," <simple_expr> }
